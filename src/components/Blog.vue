@@ -12,11 +12,15 @@
       </router-link>
     </div>
     <div class="col-4 d-flex bg-dark text-light p-2 justify-content-between selectable elevation-2">
+      <router-link 
+      :to="{name: 'Profile', params: { id: blog.creator.id}}" >
+    
       <div class="mx-2">
         <h5><u>{{ blog.creator.name }}</u></h5>
         <p>{{ blog.creator.bio }}</p>
       </div>
       <img :src="blog.creator.picture" class="img-fluid blog-img" alt="">
+      </router-link>
     </div>
     
   </div>
