@@ -1,6 +1,6 @@
 import Axios from 'axios'
-import { baseURL } from '../env'
+// import { baseURL } from '../env'
 export const api = Axios.create({
-  baseURL,
-  timeout: 8000
+  baseURL:  'https://bcw-sandbox.herokuapp.com/api/blogs',
+  timeout: 12000
 })
