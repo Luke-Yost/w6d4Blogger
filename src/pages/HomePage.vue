@@ -1,12 +1,11 @@
 <template>
   .<div class="container">
-    <Blog>
-    </Blog>
+    <Blog v-for="b in blogs" :key="b.id" :blog="b" />
   </div>
 </template>
 
 <script>
-import { onMounted } from "vue"
+import { computed, onMounted } from "vue"
 import { AppState } from "../AppState"
 import { blogsService } from "../services/BlogsService"
 
@@ -16,6 +15,9 @@ export default {
     onMounted(async () => {
       const res = await blogsService.getBlogs()
     })
+    return {
+      blogs: computed(() => AppState.blogs)
+    }
   }
 }
 </script>
