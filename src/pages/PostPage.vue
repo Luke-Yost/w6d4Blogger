@@ -7,10 +7,10 @@
         <h1><u>{{ post.title }}</u></h1>
         <p>{{ post.body }}</p>
       </div>
-      <div class="col-12 d-flex my-5 border-top border-primary border-3">
+      <div class="col-12 d-flex my-5 border-top border-primary border-3 bg-light elevation-2">
         <div class="d-flex flex-column my-2">
           <h4>{{ post.creator.name }}</h4>
-          <img class="" :src="post.creator.picture" alt="">
+          <img class="creator-img" :src="post.creator.picture" alt="">
         </div>
         <p class="align-self-center mx-2">{{ post.creator.bio }}</p>
       </div>
@@ -43,5 +43,11 @@ export default {
 .post-img {
   height: 40vh;
   object-fit: contain;
+}
+
+.creator-img {
+  height: 15vh;
+  object-fit: cover;
+  border-radius: 75%;
 }
 </style>
