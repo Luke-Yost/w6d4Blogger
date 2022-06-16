@@ -9,6 +9,11 @@ class BlogsService {
     console.log(res.data);
     AppState.blogs = res.data
   }
+  async setActivePost(id){
+    const res = await api.get(id)
+    console.log('active post', res.data);
+    AppState.activePost = res.data 
+  }
 
 }
 
