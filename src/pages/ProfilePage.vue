@@ -25,17 +25,20 @@
 
 
 <script>
-import { onMounted } from "vue"
+import { computed, onMounted } from "vue"
 import { useRoute } from "vue-router"
+import { AppState } from "../AppState"
 import { blogsService } from "../services/BlogsService"
 
 export default {
   setup(){
     const route = useRoute()
     onMounted(async()=>{
-      await blogsService.setActivePost(route.params.id)
+      await blogsService.setActiveProfile(route.params.id)
     })
-    return {}
+    return {
+      info: computed(()=> AppState.active)
+    }
   }
 }
 </script>

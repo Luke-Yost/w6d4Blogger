@@ -11,7 +11,7 @@
       </div>
       </router-link>
     </div>
-    <div class="col-4 d-flex bg-dark text-light p-2 justify-content-between selectable elevation-2">
+    <div class="col-4 d-flex bg-dark text-light p-2 justify-content-between selectable elevation-2" @click="setProfilePosts(blog.creator.id)">
       <router-link 
       :to="{name: 'Profile', params: { id: blog.id}}" >
     
@@ -28,10 +28,16 @@
   
   
   <script>
+import { blogsService } from "../services/BlogsService"
+
 export default {
   props: { blog: { type: Object, required: true } },
   setup() {
-    return {}
+    return {
+      setProfilePosts(id){
+        blogsService.setActivePost(id)
+      }
+    }
   }
 }
 </script>

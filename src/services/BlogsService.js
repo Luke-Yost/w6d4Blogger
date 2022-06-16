@@ -14,6 +14,9 @@ class BlogsService {
     console.log('active post', res.data);
     AppState.activePost = res.data 
   }
+  setActiveProfile(id){
+      AppState.profilePosts = AppState.blogs.filter(p=>p.creator.id == id)
+    }
 
 }
 
